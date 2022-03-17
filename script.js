@@ -5,7 +5,8 @@ const nextClueWaitTime = 1000; //how long to wait before starting playback
 
 var difficulty = 'easy';
 
-
+const hardButton = document.getElementById("button6");
+const mediumButton = document.getElementById("button5");
 
 
 //Global Variables
@@ -17,21 +18,30 @@ var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
 
 function changeDifficulty(difficulty){
-  while(){
     if(!gamePlaying){
       if(difficulty === 'medium'){
         pattern = [1,2,3,4,5];
-        document.getElementById("button5").classList.remove("hidden");
+        mediumButton.classList.remove("hidden");
+        if (hardButton.classList === "hidden"){
+        } else{hardButton.classList.add("hidden")}
+        
       }else if(difficulty === 'hard'){
         pattern = [1,2,3,4,5,6];
-        document.getElementById("button5").classList.remove("hidden");
-        document.getElementById("button6").classList.remove("hidden");
-      }else{
-
+        mediumButton.classList.remove("hidden");
+        hardButton.classList.remove("hidden");
+      }else if(difficulty === 'easy'){
+        pattern = [1,2,3,4];
+        
+        if (mediumButton.classList === "hidden"){
+        } else{mediumButton.classList.add("hidden")}
+        
+        if (hardButton.classList === "hidden"){
+        } else{hardButton.classList.add("hidden")}
+        
       }
     }
   }
-}
+
 
 function startGame(){
   //initialize game variables
