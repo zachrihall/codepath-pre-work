@@ -39,7 +39,7 @@ button {
 #gameButtonArea > button {
   width:200px;
   height:200px;
-  margin:2px;
+  margin: auto;
 }
 
 .hidden {
@@ -76,4 +76,20 @@ button {
 
 #button4:active, #button4.lit {
   background: yellow;
+}
+
+#button5 {
+    background: #ff66d9;
+}
+
+#button5:active, #button5.lit {
+  background: #990073;
+}
+
+#button6 {
+    background: #ffd480;
+}
+
+#button6:active, #button6.lit {
+  background: #663300
 }
