@@ -9,7 +9,7 @@ const mediumButton = document.getElementById("button5");
 
 
 //Global Variables
-var pattern = [1,2,3,4];
+let pattern;
 var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
@@ -20,7 +20,6 @@ var clueHoldTime = 1000; //how long to hold each clue's light/sound
 function changeDifficulty(difficulty){
     if(!gamePlaying){
       if(difficulty === 'medium'){
-        pattern = [1,2,3,4,5];
         clueHoldTime = 450;
         
         mediumButton.classList.remove("hidden");
@@ -28,13 +27,12 @@ function changeDifficulty(difficulty){
         } else{hardButton.classList.add("hidden")}
         
       }else if(difficulty === 'hard'){
-        pattern = [1,2,3,4,5,6];
         clueHoldTime = 250;
+        console.log(difficulty);
         
         mediumButton.classList.remove("hidden");
         hardButton.classList.remove("hidden");
       }else if(difficulty === 'easy'){
-        pattern = [1,2,3,4];
         clueHoldTime = 1000;
         
         if (mediumButton.classList === "hidden"){
@@ -50,21 +48,32 @@ function changeDifficulty(difficulty){
 function randomPattern(){
   if (difficulty === "easy"){
     let count = 0;
-    while(count < 4){
-      pattern.push(Math.floor(Math.random() * 4));
-    }else if(difficulty === "medium")
+    while(count < 6){
+    pattern.push(Math.floor(Math.random() * 5));
+    }
+  }
+    
+  else if(difficulty === "medium"){
+    let count = 0;
+    while(count < 8){
+    pattern.push(Math.floor(Math.random() * 6));
+    }
+  }
+    
+  else if(difficulty === "hard"){
+    let count = 0;
+    while(count < 10){
+    pattern.push(Math.floor(Math.random() * 7));
+    }
+  }   
 }
-  loop the ammount for the ammount of buttons and diff
-  Math.floor(Math.random() * [VARIABLE of how many numbers])
 
-
-
-}
 
 function startGame(){
   //initialize game variables
   progress = 0;
   gamePlaying = true;
+  randomPattern();
   
   // swap the Start and Stop buttons
   document.getElementById("startBtn").classList.add("hidden");
