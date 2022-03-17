@@ -3,8 +3,24 @@ const clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback
 
+var difficulty = 'easy';
+
+
+function changeDifficulty(difficulty){
+  if(difficulty === 'medium'){
+    pattern.push(5);
+    document.getElementById("button5").classList.remove("hidden");
+  }else if(difficulty === 'hard'){
+  pattern.push(5,6);
+  document.getElementById("button5").classList.remove("hidden");
+  document.getElementById("button6").classList.remove("hidden");
+  }else{
+
+  }
+}
+
 //Global Variables
-var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+var pattern = [1,2,3,4];
 var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
