@@ -6,18 +6,7 @@ const nextClueWaitTime = 1000; //how long to wait before starting playback
 var difficulty = 'easy';
 
 
-function changeDifficulty(difficulty){
-  if(difficulty === 'medium'){
-    pattern.push(5);
-    document.getElementById("button5").classList.remove("hidden");
-  }else if(difficulty === 'hard'){
-  pattern.push(5,6);
-  document.getElementById("button5").classList.remove("hidden");
-  document.getElementById("button6").classList.remove("hidden");
-  }else{
 
-  }
-}
 
 //Global Variables
 var pattern = [1,2,3,4];
@@ -26,6 +15,23 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
+
+function changeDifficulty(difficulty){
+  while(){
+    if(!gamePlaying){
+      if(difficulty === 'medium'){
+        pattern = [1,2,3,4,5];
+        document.getElementById("button5").classList.remove("hidden");
+      }else if(difficulty === 'hard'){
+        pattern = [1,2,3,4,5,6];
+        document.getElementById("button5").classList.remove("hidden");
+        document.getElementById("button6").classList.remove("hidden");
+      }else{
+
+      }
+    }
+  }
+}
 
 function startGame(){
   //initialize game variables
