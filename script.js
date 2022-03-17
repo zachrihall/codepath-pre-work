@@ -18,41 +18,45 @@ var guessCounter = 0;
 var clueHoldTime = 1000; //how long to hold each clue's light/sound
 
 function changeDifficulty(input){
+  //setting global variable to be equal to the local variable to be used again in another function
   difficulty = input;
     if(!gamePlaying){
       if(input === 'medium'){
         clueHoldTime = 450;
-        
         mediumButton.classList.remove("hidden");
-        if (hardButton.classList === "hidden"){
-        } else{hardButton.classList.add("hidden")}
         
-      }else if(input === 'hard'){
+        if (hardButton.classList === "hidden"){
+        }else{hardButton.classList.add("hidden")}
+        
+      } else if(input === 'hard'){
         clueHoldTime = 250;
         console.log(difficulty);
         
+        //If the visibility is already hidden then do nothing if not then hide it
         mediumButton.classList.remove("hidden");
         hardButton.classList.remove("hidden");
-      }else if(input === 'easy'){
+        
+      } else if(input === 'easy'){
         clueHoldTime = 1000;
         
+        //If the visibility is already hidden then do nothing if not then hide it
         if (mediumButton.classList === "hidden"){
-        } else{mediumButton.classList.add("hidden")}
+        }else{mediumButton.classList.add("hidden")}
         
         if (hardButton.classList === "hidden"){
-        } else{hardButton.classList.add("hidden")}
+        }else{hardButton.classList.add("hidden")}
         
       }
     }
   }
 
+//Creates a random pattern based on the difficulty
 function randomPattern(){
   if (difficulty === "easy"){
     let count = 0;
     for(let i = 0; i < 5; i++){
     pattern.push(Math.ceil(Math.random() * 3));
     }
-    console.log(pattern);
   }
     
   else if(difficulty === "medium"){
@@ -60,8 +64,6 @@ function randomPattern(){
     for(let i = 0; i < 7; i++){
     pattern.push(Math.ceil(Math.random() * 6));
     }
-        console.log(pattern);
-
   }
     
   else if(difficulty === "hard"){
@@ -69,8 +71,6 @@ function randomPattern(){
     for(let i = 0; i < 9; i++){
     pattern.push(Math.ceil(Math.random() * 7));
     }
-        console.log(pattern);
-
   }   
 }
 
@@ -105,8 +105,8 @@ const freqMap = {
   4: 466.2,
   5: 566.2,
   6: 700
-  
 }
+
 function playTone(btn,len){ 
   o.frequency.value = freqMap[btn]
   g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.025)
@@ -116,6 +116,7 @@ function playTone(btn,len){
     stopTone()
   },len)
 }
+
 function startTone(btn){
   if(!tonePlaying){
     context.resume()
@@ -125,6 +126,7 @@ function startTone(btn){
     tonePlaying = true
   }
 }
+
 function stopTone(){
   g.gain.setTargetAtTime(0,context.currentTime + 0.05,0.025)
   tonePlaying = false
