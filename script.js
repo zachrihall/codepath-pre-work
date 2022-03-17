@@ -62,14 +62,14 @@ function randomPattern(){
   else if(difficulty === "medium"){
     let count = 0;
     for(let i = 0; i < 7; i++){
-    pattern.push(Math.ceil(Math.random() * 6));
+    pattern.push(Math.ceil(Math.random() * 4));
     }
   }
     
   else if(difficulty === "hard"){
     let count = 0;
     for(let i = 0; i < 9; i++){
-    pattern.push(Math.ceil(Math.random() * 7));
+    pattern.push(Math.ceil(Math.random() * 5));
     }
   }   
 }
