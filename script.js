@@ -77,6 +77,7 @@ function randomPattern(){
 
 function startGame(){
   //initialize game variables
+  pattern = [];
   progress = 0;
   gamePlaying = true;
   randomPattern();
