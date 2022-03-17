@@ -1,5 +1,4 @@
 // global constants
-const clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback
 
@@ -16,21 +15,27 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
+var clueHoldTime = 1000; //how long to hold each clue's light/sound
 
 function changeDifficulty(difficulty){
     if(!gamePlaying){
       if(difficulty === 'medium'){
         pattern = [1,2,3,4,5];
+        clueHoldTime = 450;
+        
         mediumButton.classList.remove("hidden");
         if (hardButton.classList === "hidden"){
         } else{hardButton.classList.add("hidden")}
         
       }else if(difficulty === 'hard'){
         pattern = [1,2,3,4,5,6];
+        clueHoldTime = 250;
+        
         mediumButton.classList.remove("hidden");
         hardButton.classList.remove("hidden");
       }else if(difficulty === 'easy'){
         pattern = [1,2,3,4];
+        clueHoldTime = 1000;
         
         if (mediumButton.classList === "hidden"){
         } else{mediumButton.classList.add("hidden")}
@@ -42,6 +47,19 @@ function changeDifficulty(difficulty){
     }
   }
 
+function randomPattern(){
+  if (difficulty === "easy"){
+    let count = 0;
+    while(count < 4){
+      pattern.push(Math.floor(Math.random() * 4));
+    }else if(difficulty === "medium")
+}
+  loop the ammount for the ammount of buttons and diff
+  Math.floor(Math.random() * [VARIABLE of how many numbers])
+
+
+
+}
 
 function startGame(){
   //initialize game variables
@@ -52,6 +70,7 @@ function startGame(){
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence();
+  
 }
 
 function stopGame(){
