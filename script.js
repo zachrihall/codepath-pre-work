@@ -17,22 +17,23 @@ var volume = 0.5;  //must be between 0.0 and 1.0
 var guessCounter = 0;
 var clueHoldTime = 1000; //how long to hold each clue's light/sound
 
-function changeDifficulty(difficulty){
+function changeDifficulty(input){
+  difficulty = input;
     if(!gamePlaying){
-      if(difficulty === 'medium'){
+      if(input === 'medium'){
         clueHoldTime = 450;
         
         mediumButton.classList.remove("hidden");
         if (hardButton.classList === "hidden"){
         } else{hardButton.classList.add("hidden")}
         
-      }else if(difficulty === 'hard'){
+      }else if(input === 'hard'){
         clueHoldTime = 250;
         console.log(difficulty);
         
         mediumButton.classList.remove("hidden");
         hardButton.classList.remove("hidden");
-      }else if(difficulty === 'easy'){
+      }else if(input === 'easy'){
         clueHoldTime = 1000;
         
         if (mediumButton.classList === "hidden"){
@@ -49,22 +50,27 @@ function randomPattern(){
   if (difficulty === "easy"){
     let count = 0;
     for(let i = 0; i < 5; i++){
-    pattern.push(Math.floor(Math.random() * 5));
+    pattern.push(Math.ceil(Math.random() * 3));
     }
+    console.log(pattern);
   }
     
   else if(difficulty === "medium"){
     let count = 0;
     for(let i = 0; i < 7; i++){
-    pattern.push(Math.floor(Math.random() * 6));
+    pattern.push(Math.ceil(Math.random() * 6));
     }
+        console.log(pattern);
+
   }
     
   else if(difficulty === "hard"){
     let count = 0;
     for(let i = 0; i < 9; i++){
-    pattern.push(Math.floor(Math.random() * 7));
+    pattern.push(Math.ceil(Math.random() * 7));
     }
+        console.log(pattern);
+
   }   
 }
 
