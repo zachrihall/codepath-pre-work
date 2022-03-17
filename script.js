@@ -9,7 +9,7 @@ const mediumButton = document.getElementById("button5");
 
 
 //Global Variables
-let pattern;
+let pattern = [];
 var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
@@ -48,21 +48,21 @@ function changeDifficulty(difficulty){
 function randomPattern(){
   if (difficulty === "easy"){
     let count = 0;
-    while(count < 6){
+    for(let i = 0; i < 5; i++){
     pattern.push(Math.floor(Math.random() * 5));
     }
   }
     
   else if(difficulty === "medium"){
     let count = 0;
-    while(count < 8){
+    for(let i = 0; i < 7; i++){
     pattern.push(Math.floor(Math.random() * 6));
     }
   }
     
   else if(difficulty === "hard"){
     let count = 0;
-    while(count < 10){
+    for(let i = 0; i < 9; i++){
     pattern.push(Math.floor(Math.random() * 7));
     }
   }   
